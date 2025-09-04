@@ -46,7 +46,7 @@ export default StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 2,
-  },d
+  },fdv
  
   titulo: {
     fontSize: 28,
