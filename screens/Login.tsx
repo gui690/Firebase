@@ -1,10 +1,11 @@
 
-import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
+import { Text, View, TextInput } from 'react-native';
 import { useState } from 'react';
-
+import React from "react";
+import { TouchableOpacity } from "react-native";
 import { auth } from '../firebase';
 import { useNavigation } from '@react-navigation/native';
-
+import styles from "../estilo"; 
 
 export default function Login() {
 
@@ -25,26 +26,25 @@ export default function Login() {
 
   return (
     <View style={styles.container}>
-      <Text>Tela de Login</Text>
+      <Text style={styles.titulo}>Tela de Login</Text>
      
-    <TextInput placeholder='Email'
+    <TextInput style={styles.input} placeholder='Email'
                onChangeText={email => setEmail(email)}    
     />
-    <TextInput placeholder='Senha'
+    <TextInput style={styles.input} placeholder='Senha'
             onChangeText={senha => setSenha(senha)}  
     />
 
-    <Button title='Logar' onPress={logar}/>
+    <TouchableOpacity style={styles.button} onPress={logar}>
+      <Text style={styles.buttonText}>Login</Text>
+    </TouchableOpacity>
+
+    <TouchableOpacity style={styles.button} onPress={() => navigation.replace('Registro')}>
+      <Text style={styles.buttonText}>Cadastrar</Text>
+    </TouchableOpacity>
 
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
