@@ -25,7 +25,7 @@ export default function Login() {
     }
 
   return (
-    <View style={styles.container}>
+    <View style={styles.fcontainer}>
       <Text style={styles.titulo}>Tela de Login</Text>
      
     <TextInput style={styles.input} placeholder='Email'
