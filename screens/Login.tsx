@@ -1,5 +1,5 @@
 
-import { Text, View, TextInput, KeyboardAvoidingView, ImageBackground } from 'react-native';
+import { Text, View, TextInput, KeyboardAvoidingView, ImageBackground, Image } from 'react-native';
 import { useState } from 'react';
 import React from "react";
 import { TouchableOpacity } from "react-native";
@@ -19,7 +19,7 @@ export default function Login() {
         .signInWithEmailAndPassword(email,senha)
         .then(userCredentials => {
             console.log('Logado como: ', userCredentials.user.email);
-            navigation.replace("Home");
+            navigation.replace("Menu");
         })
         .catch(erro => alert(erro.message))
     }
@@ -27,10 +27,11 @@ export default function Login() {
   return (
      <KeyboardAvoidingView behavior='padding' style={styles.key}>
         <ImageBackground  
-         source={require("../assets/fundo1.png")} 
+         source={require("../assets/fundo.jpg")} 
          resizeMode='stretch'
          style={styles.fundo}
          >
+
       <Text style={styles.titulo}>Tela de Login</Text>
      
     <TextInput style={styles.input} placeholder='Email'

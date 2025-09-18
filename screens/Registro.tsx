@@ -1,27 +1,38 @@
 
-import { Text, View , TextInput, KeyboardAvoidingView, ImageBackground} from 'react-native';
-import { auth } from '../firebase';
+import { Text, View , TextInput, KeyboardAvoidingView, ImageBackground,Image} from 'react-native';
+import { auth, firestore } from '../firebase';
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import React from "react";
 import { TouchableOpacity } from "react-native";
 import styles from "../estilo"; 
+import { Usuario } from '../model/Usuario';
 
 export default function Registro() {
 
-      const[email,setEmail]       = useState('');
-      const[senha,setSenha]       = useState('');
-      const[nome,setNome]         = useState('');
-      const[telefone,setTelefone] = useState('')
+     const [formUsuario, setFormUsuario] = useState<Partial<Usuario>>({})
   
       const navigation = useNavigation();
 
      const registrar = () => {
         auth
-        .createUserWithEmailAndPassword(email,senha)
+        .createUserWithEmailAndPassword(formUsuario.email,formUsuario.senha)
         .then(userCredentials => {
-            console.log('Logado como: ', userCredentials.user.email);
-            navigation.replace("Home");
+            console.log('Logado como: '+ userCredentials.user.email);
+         
+            const refUsuario = firestore.collection("Usuario");
+            const idUsuario  = refUsuario.doc(auth.currentUser.uid);
+            idUsuario.set({
+                  id    : auth.currentUser.uid,
+                  nome  : formUsuario.nome,
+                  email : formUsuario.email,
+                  senha : formUsuario.senha,
+                  fone  : formUsuario.fone
+            })
+               navigation.replace("Menu");
+
+
+
         })
         .catch(erro => alert(erro.message))
     }
@@ -29,23 +40,36 @@ export default function Registro() {
   return (
     <KeyboardAvoidingView behavior='padding' style={styles.key}>
            <ImageBackground  
-            source={require("../assets/fundo1.png")} 
+            source={require("../assets/fundo.jpg")} 
             resizeMode='stretch'
             style={styles.fundo}
             >
+
       <Text style={styles.titulo} >Cadastro de Usuário</Text>
       
           <TextInput style={styles.input} placeholder='Nome'
-                     onChangeText={nome => setNome(nome)}    
+                     onChangeText={nome => setFormUsuario({
+                        ...formUsuario,
+                        nome : nome
+                     })}    
           />
           <TextInput style={styles.input} placeholder='Email'
-                     onChangeText={email => setEmail(email)}    
+                     onChangeText={email => setFormUsuario({
+                        ...formUsuario,
+                        email : email
+                     })}      
           />
           <TextInput style={styles.input} placeholder='Senha'
-                  onChangeText={senha => setSenha(senha)}  
+                  onChangeText={senha => setFormUsuario({
+                        ...formUsuario,
+                        senha : senha
+                     })}    
           />
             <TextInput style={styles.input} placeholder='Telefone'
-                     onChangeText={telefone => setTelefone(telefone)}    
+                     onChangeText={telefone => setFormUsuario({
+                        ...formUsuario,
+                        fone : telefone
+                     })}       
           />
       
           <TouchableOpacity style={styles.button} onPress={registrar}>

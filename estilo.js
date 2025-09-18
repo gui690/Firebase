@@ -26,7 +26,8 @@ export default StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 20,
-    backgroundColor: "#8299b8ff",
+    backgroundColor: "#8299b8ff", 
+    
   },
    input: {
     width: "90%",
@@ -50,7 +51,7 @@ export default StyleSheet.create({
  titulo: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "#333",
+    color: "#ffffffff",
     marginBottom: 15,
     textAlign: "center",
   },
@@ -73,5 +74,13 @@ export default StyleSheet.create({
     alignItems: 'center', // Centraliza o conteúdo horizontalmente
     width:"100%"
   },
+   logo:{  
+  height: '15%',       // Use aspas para valores percentuais
+    width: '30%',
+  resizeMode: 'contain',  
+
+           
+
+  }
 
 });

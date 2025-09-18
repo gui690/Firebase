@@ -1,5 +1,5 @@
 
-import {TouchableOpacity, Text, ImageBackground, KeyboardAvoidingView  } from 'react-native';
+import {TouchableOpacity, Text, ImageBackground, KeyboardAvoidingView,Image  } from 'react-native';
 import React from "react";
 import { auth } from '../firebase';
 import { useNavigation } from '@react-navigation/native';
@@ -19,11 +19,11 @@ export default function Home() {
   return (
     <KeyboardAvoidingView behavior='padding' style={styles.key}>
     <ImageBackground  
-     source={require("../assets/fundo1.png")} 
+     source={require("../assets/fundo.jpg")} 
      resizeMode='stretch'
      style={styles.fundo}
      >
-    
+ 
       <Text style={styles.aviso}>Bem Vindo  {auth.currentUser?.email} !</Text>
      
      
