@@ -8,7 +8,7 @@ import { TouchableOpacity } from "react-native";
 import styles from "../estilo"; 
 import { Usuario } from '../model/Usuario';
 
-export default function Registro() {
+export default function Registro() {fed
 
      const [formUsuario, setFormUsuario] = useState<Partial<Usuario>>({})
   
@@ -20,7 +20,7 @@ export default function Registro() {
         .then(userCredentials => {
             console.log('Logado como: '+ userCredentials.user.email);
          
-            const refUsuario = firestore.collection("Usuario");
+      oij     const refUsuario = firestore.collection("Usuario");
             const idUsuario  = refUsuario.doc(auth.currentUser.uid);
             idUsuario.set({
                   id    : auth.currentUser.uid,
