@@ -27,7 +27,7 @@ export default function Registro() {
                   nome  : formUsuario.nome,
                   email : formUsuario.email,
                   senha : formUsuario.senha,
-                  fone  : formUsuario.fone
+                  tipo  : formUsuario.tipo
             })
                navigation.replace("Menu");
 
@@ -65,10 +65,10 @@ export default function Registro() {
                         senha : senha
                      })}    
           />
-            <TextInput style={styles.input} placeholder='Telefone'
-                     onChangeText={telefone => setFormUsuario({
+            <TextInput style={styles.input} placeholder='Tipo'
+                     onChangeText={tipo => setFormUsuario({
                         ...formUsuario,
-                        fone : telefone
+                        tipo : tipo
                      })}       
           />
       
