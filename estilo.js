@@ -86,6 +86,16 @@ export default StyleSheet.create({
  justifyContent:"center",
  alignItems:"center"
   
-  }
+  },
+   buttonHome: {
+  backgroundColor: "#03051b", 
+  paddingVertical: 10,
+  borderRadius: 6,
+  alignItems: "center",
+  justifyContent: "center",
+  width: "50%",
+  marginVertical: 8,
+  marginTop:600
+},
 
 });

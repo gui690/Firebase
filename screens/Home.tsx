@@ -28,10 +28,10 @@ export default function Home() {
      
      
      <TouchableOpacity 
-        style={styles.button}  
+        style={styles.buttonHome}  
         onPress={sair}
      >
-         <Text style={styles.buttonText} >Logout</Text>
+         <Text style={styles.buttonText} >Sair</Text>
       </TouchableOpacity>
 
     </ImageBackground >
