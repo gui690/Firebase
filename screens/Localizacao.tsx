@@ -7,6 +7,9 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 import styles from "../estilo"; 
 import { Localizacao } from '../model/Localizacao';
+import { Picker } from '@react-native-picker/picker';
+
+
 
 export default function Local() {
 
@@ -49,6 +52,8 @@ export default function Local() {
                         latitude : latitude
                      })}      
           />
+
+         
           <TextInput style={styles.input} placeholder='longitude'
                   onChangeText={longitude => setFormLoc({
                         ...formLoc,

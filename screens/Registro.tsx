@@ -7,6 +7,7 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 import styles from "../estilo"; 
 import { Usuario } from '../model/Usuario';
+import { Picker } from '@react-native-picker/picker';
 
 export default function Registro() {
 
@@ -46,7 +47,9 @@ export default function Registro() {
             >
 
       <Text style={styles.titulo} >Cadastro de Usuário</Text>
-      
+      <View style={styles.viewinput}>
+
+
           <TextInput style={styles.input} placeholder='Nome'
                      onChangeText={nome => setFormUsuario({
                         ...formUsuario,
@@ -65,12 +68,26 @@ export default function Registro() {
                         senha : senha
                      })}    
           />
-            <TextInput style={styles.input} placeholder='Tipo'
-                     onChangeText={tipo => setFormUsuario({
+           <View  style={styles.inputPicker}>
+           <Picker 
+           mode='dropdown'
+           prompt='Selecione um tipo...'
+           onValueChange={tipo => setFormUsuario({
                         ...formUsuario,
                         tipo : tipo
-                     })}       
-          />
+                     })}    
+           >
+                  <Picker.Item label="Selecione"  value="Selecione" style={styles.textpicker}/>
+                  <Picker.Item label="Motorista"  value="Motorista" style={styles.textpicker}/>
+                  <Picker.Item label="Estudante"  value="Estudante" style={styles.textpicker}/>
+                  <Picker.Item label="Idoso"      value="Idoso"     style={styles.textpicker}/>
+                  <Picker.Item label="Passageiro" value="Passageiro"style={styles.textpicker}/>
+           </Picker>
+           </View>
+
+
+         </View>
+          
       
           <TouchableOpacity style={styles.button} onPress={registrar}>
                 <Text style={styles.buttonText}>Cadastrar</Text>

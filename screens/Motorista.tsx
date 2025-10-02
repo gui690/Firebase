@@ -46,12 +46,10 @@ export default function Motorista() {
     />
 
     <TouchableOpacity style={styles.button} onPress={logar}>
-      <Text style={styles.buttonText}>Login</Text>
+      <Text style={styles.buttonText}>Entrar</Text>
     </TouchableOpacity>
 
-    <TouchableOpacity style={styles.button} onPress={() => navigation.replace('Registrar')}>
-      <Text style={styles.buttonText}>Registrar</Text>
-    </TouchableOpacity>
+  
 
     </ImageBackground>
     </KeyboardAvoidingView>

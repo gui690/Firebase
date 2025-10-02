@@ -30,23 +30,24 @@ export default StyleSheet.create({
     
   },
    input: {
-    width: "90%",
-    backgroundColor: "#fff",
-    paddingVertical: 12,
-    paddingHorizontal: 16,
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: "#ccc",
-    fontSize: 16,
-    marginBottom: 15,
-    color: "#333",
-
-    // Sombras no Android e iOS
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
+    marginBottom: 20,
+    width: "80%",
+    paddingLeft:8,
+    backgroundColor:"white",
+    borderRadius:10
+  },
+  inputPicker: {
+    marginBottom: 20,
+    width: "80%",
+    paddingLeft:8,
+    backgroundColor:"white",
+    borderRadius:10,
+    
+    
+  },
+  textpicker:{
+    fontSize:12,
+    color:"blue",
   },
  titulo: {
     fontSize: 28,
@@ -57,7 +58,7 @@ export default StyleSheet.create({
   },
   aviso: {
     fontSize: 18,
-    color: "#ffffffff", // vermelho para erros
+    color: "#ffff", // vermelho para erros
     fontWeight: "bold",
     marginTop: 10,
     textAlign: "center",
@@ -77,10 +78,14 @@ export default StyleSheet.create({
    logo:{  
   height: '15%',       // Use aspas para valores percentuais
     width: '30%',
-  resizeMode: 'contain',  
+  resizeMode: 'contain',     
 
-           
-
+  },
+  viewinput:{
+ width: "100%",
+ justifyContent:"center",
+ alignItems:"center"
+  
   }
 
 });
